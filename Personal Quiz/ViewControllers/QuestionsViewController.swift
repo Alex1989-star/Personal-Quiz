@@ -31,6 +31,7 @@ class QuestionsViewController: UIViewController {
 
 extension QuestionsViewController {
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
+    
         let currentAnswers = questions[questionIndex].answers
         
         guard let currentIndex = singleButtons.firstIndex(of: sender) else {

@@ -29,15 +29,11 @@ class ResultViewController: UIViewController {
         for response in responseType {
             numberOfResponses[response] = (numberOfResponses[response] ?? 0) + 1
         }
+
+        let answersSorted = numberOfResponses.sorted { $0.value > $1.value}.first!.key
         
-        let answersSorted = numberOfResponses.sorted(by:
-            {(pairOne, pairTwo) -> Bool in
-            return pairOne.value > pairTwo.value
-        })
-        
-        let mostCommonAnswer = numberOfResponses.first!.key
-        resultAnswerLabel.text = "Вы \(mostCommonAnswer.rawValue)"
-        resultLabel.text = mostCommonAnswer.definition
+        resultAnswerLabel.text = "Вы \(answersSorted.rawValue)"
+        resultLabel.text = answersSorted.definition
     }
 }
 
